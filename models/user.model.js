@@ -11,4 +11,5 @@ const userSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.models.User || mongoose.model('User', userSchema);
+module.exports = (connection) =>
+  connection.models.User || connection.model('User', userSchema);
