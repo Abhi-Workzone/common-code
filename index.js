@@ -1,4 +1,6 @@
+const getUserModel = require('./models/user.model');
+
 module.exports = {
-    getUserModel: require('./models/user.model')
+    getUserModel,
     // Add other models/utilities in future here
 };
