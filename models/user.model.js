@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: { type: String, required: true, ref: 'Role' },
+    role: [{ type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Role' }],
     status: { type: Boolean, required: true, default: true },
     isDeleted: { type: Boolean, required: true, default: false }
   },
