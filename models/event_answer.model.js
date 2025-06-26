@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const constant = require("../utils/constant");
 
 const eventAnswerSchema = new mongoose.Schema({
   eventId: {
