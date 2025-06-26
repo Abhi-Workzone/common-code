@@ -7,7 +7,7 @@ const getEventTeamModel = require('./models/event_team.model');
 const getEventParticipantModel = require('./models/event_participant.model');
 const getEventCouponModel = require('./models/event_coupon.model');
 const getEventAnswerModel = require('./models/event_answer.model');
-const getOrganizationModel = require('./models/event_organization.model');
+const getEventOrganizationModel = require('./models/event_organization.model');
 const getEventClueModel = require('./models/event_clue.model');
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
     getEventParticipantModel,
     getEventCouponModel,
     getEventAnswerModel,
-    getOrganizationModel,
+    getEventOrganizationModel,
     getEventClueModel,
     // Add other models/utilities in future here
 };
