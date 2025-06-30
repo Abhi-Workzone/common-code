@@ -15,7 +15,9 @@ const roleSchema = new mongoose.Schema(
     name: { type: String, required: true, unique: true },    // e.g., "admin"
     displayName: { type: String, required: true },           // e.g., "Admin"
     description: { type: String },
-    permissions: { type: [rolePermissionSchema], default: [] }
+    permissions: { type: [rolePermissionSchema], default: [] },
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
   },
   { timestamps: true }
 );

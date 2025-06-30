@@ -38,9 +38,16 @@ const eventTeamSchema = new mongoose.Schema({
     enum: ["active", "disqualified", "left", "deleted"],
     default: "active"
   },
-
-  createdAt: Date,
-  updatedAt: Date
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
+  updatedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  }
 }, {
   timestamps: true
 });

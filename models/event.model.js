@@ -83,7 +83,8 @@ const eventSchema = new mongoose.Schema({
     priorityOrder: {type: Number, default: 0},
     reviewerId: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
     organizerId: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
-    createdBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
+    createdBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
+    updatedBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
 }, {
     timestamps: true
 });

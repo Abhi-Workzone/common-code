@@ -6,7 +6,9 @@ const permissionSchema = new mongoose.Schema(
   {
     module: { type: String, required: true, unique: true },     // e.g., "user", "event"
     displayName: { type: String, required: true },              // e.g., "User Management"
-    actions: { type: [String], default: [] }              // actions with key+label
+    actions: { type: [String], default: [] },              // actions with key+label
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
   },
   { timestamps: true }
 );

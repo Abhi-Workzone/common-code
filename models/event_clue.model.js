@@ -17,7 +17,7 @@ const eventClueSchema = new mongoose.Schema({
     default: "text"
   },
 
-  order: { type: Number, required: true }, // Position in the hunt
+  order: { type: Number, required: true, default: 0 }, // Position in the hunt
 
   gpsLocation: {
     type: {
@@ -32,9 +32,9 @@ const eventClueSchema = new mongoose.Schema({
   },
 
   questionMedia: {
-    image: String,
-    video: String,
-    audio: String
+    image: [String],
+    video: [String],
+    audio: [String]
   },
 
   options: [String], // For multiple-choice
@@ -51,21 +51,27 @@ const eventClueSchema = new mongoose.Schema({
   },
 
   timeLimit: {
-    type: Number // in seconds
+    type: Number,
+    default: 0 // in seconds
   },
 
   score: {
     type: Number,
-    default: 10
+    default: 0
   },
 
   isActive: {
     type: Boolean,
-    default: true
+    default: false
   },
-
-  createdAt: Date,
-  updatedAt: Date
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
+  updatedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  }
 }, {
   timestamps: true
 });

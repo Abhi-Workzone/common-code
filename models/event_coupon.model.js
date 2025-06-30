@@ -11,7 +11,7 @@ const eventCouponSchema = new mongoose.Schema({
   eventId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Event",
-    required: true
+    required: false
   },
 
   type: {
@@ -43,8 +43,11 @@ const eventCouponSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   },
-
   createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
+  updatedBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
   }

@@ -14,6 +14,12 @@ const eventTransactionSchema = new mongoose.Schema({
     required: true
   },
 
+  actualPrice: {
+    type: Number,
+    required: true,
+    default: 0
+  },
+
   amountPaid: {
     type: Number,
     required: true,
@@ -38,8 +44,9 @@ const eventTransactionSchema = new mongoose.Schema({
   },
 
   couponCode: {
-    type: String // Optional: if a discount code was applied
-  },
+    type: String, // Optional: if a discount code was applied
+    ref: "Event_Coupon"
+},
 
   paymentGatewayTxnId: {
     type: String // Razorpay/Stripe transaction ID
@@ -49,11 +56,8 @@ const eventTransactionSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-
-  createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User" // Admin/SuperAdmin if enrolled manually
-  }
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 
 }, {
   timestamps: true

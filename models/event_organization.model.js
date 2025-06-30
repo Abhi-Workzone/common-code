@@ -5,6 +5,10 @@ const eventOrganizationSchema = new mongoose.Schema({
     name: { type: String, required: true },
     domain: String,                    // e.g., "@tcs.com"
     logo: String,
+    handleBy: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }],
     hrContact: {
       name: String,
       email: String,
@@ -18,7 +22,8 @@ const eventOrganizationSchema = new mongoose.Schema({
   
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   
-    isActive: { type: Boolean, default: true }
+    isActive: { type: Boolean, default: true },
+    updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 }, {
     timestamps: true
 });

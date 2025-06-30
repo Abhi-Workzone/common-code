@@ -42,7 +42,22 @@ const eventAnswerSchema = new mongoose.Schema({
     default: 0
   },
 
-  isCorrect: Boolean,
+  logs: [{
+    msg: String,
+    createdAt: {
+      type: Date,
+      default: Date.now
+    },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    }
+  }],
+
+  isCorrect: {
+    type: Boolean,
+    default: false
+  },
 
   reviewStatus: {
     type: String,
@@ -54,7 +69,15 @@ const eventAnswerSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
   },
-  feedback: String
+  feedback: String,
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
+  updatedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  }
 }, {
   timestamps: true
 });
